@@ -21,7 +21,9 @@
 </script>
 
 <main class="flex h-screen" on:click={() => (show = false)}>
-  <div class="m-auto flex gap-2 items-center border-b border-green-300 py-2">
+  <div
+    class="m-auto flex gap-2 items-center border-b border-green-200 py-2 focus-within:border-green-400"
+  >
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div
       class="relative inline-block text-left"
@@ -33,7 +35,7 @@
       <div>
         <button
           type="button"
-          class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-1 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
+          class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-1 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
