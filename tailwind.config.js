@@ -10,7 +10,10 @@ module.exports = {
     extend: {}
   },
   variants: {
-    extend: {}
+    extend: {
+      display: ["hover"],
+      backgroundColor: ["hover"]
+    }
   },
   plugins: []
 };
