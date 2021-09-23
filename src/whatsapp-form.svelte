@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { fade } from "svelte/transition";
+
   import countriesJSON from "./country-codes.json";
 
   interface Country {
@@ -53,7 +55,9 @@
           </a>
           <!-- Heroicon name: solid/chevron-down -->
           <svg
-            class="-mr-1 ml-4 h-5 w-5 m-auto"
+            class="mr-1 ml-4 h-5 w-5 m-auto transform transition-transform duration-200 ease-in-out"
+            class:rotate-180={show}
+            class:rotate-0={!show}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -81,6 +85,8 @@
       {#if show}
         <div
           class="origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 max-h-40 overflow-y-scroll focus:outline-none"
+          in:fade={{ duration: 300 }}
+          out:fade={{ delay: 0, duration: 150 }}
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
