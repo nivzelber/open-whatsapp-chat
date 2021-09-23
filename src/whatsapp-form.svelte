@@ -21,7 +21,7 @@
 </script>
 
 <main class="flex h-screen" on:click={() => (show = false)}>
-  <div class="m-auto">
+  <div class="m-auto flex gap-2 items-center border-b border-green-300 py-2">
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div
       class="relative inline-block text-left"
@@ -51,7 +51,7 @@
           </a>
           <!-- Heroicon name: solid/chevron-down -->
           <svg
-            class="-mr-1 ml-2 h-5 w-5 m-auto"
+            class="-mr-1 ml-4 h-5 w-5 m-auto"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -115,7 +115,7 @@
     <input
       type="text"
       name="Phone Number"
-      class="focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500"
+      class="leading-tight focus:outline-none appearance-none bg-transparent border-none w-full text-gray-700 "
       placeholder="Enter Phone Number"
       bind:value={phoneNumber}
     />
