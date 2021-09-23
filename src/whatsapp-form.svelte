@@ -122,6 +122,8 @@
 
     <input
       type="text"
+      pattern="\d*"
+      inputmode="numeric"
       name="Phone Number"
       class="leading-tight focus:outline-none appearance-none bg-transparent border-none w-full text-gray-700 "
       placeholder="Enter Phone Number"
