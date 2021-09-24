@@ -5,7 +5,7 @@ I wanted to create something useful that focuses on UX, and will somewhat resemb
 
 ## Stack
 
-Svelte as the main js framework, and for transitions
+Svelte as the main js framework, and for transitions  
 Tailwind for styling
 
 ## Scripts
