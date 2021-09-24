@@ -7,7 +7,11 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {}
+    extend: {
+      height: {
+        screen: "calc(var(--vh, 1vh) * 100)"
+      }
+    }
   },
   variants: {
     extend: {
