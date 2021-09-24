@@ -1,7 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
 
-  import WhatsappForm from "./whatsapp-form.svelte";
+  import WhatsappForm from "./whatapp-form/index.svelte";
 
   const setViewHeight = () => {
     const vh = window.innerHeight * 0.01;

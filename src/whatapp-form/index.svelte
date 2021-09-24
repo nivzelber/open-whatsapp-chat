@@ -1,27 +1,20 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
 
-  import countriesJSON from "./country-codes.json";
+  import countriesJSON from "../country-codes.json";
+  import type { Country } from "./country.type";
+  import CountryListItem from "./country-list-item.svelte";
 
-  interface Country {
-    name: string;
-    dialCode: string;
-    isoCode: string;
-  }
+  const whatsappURL = "https://wa.me/";
+  const countries: Country[] = countriesJSON;
 
-  export let countries: Country[] = countriesJSON;
-  export let selectedCountry: Country = {
+  let selectedCountry: Country = {
     name: "Israel",
     dialCode: "972",
     isoCode: "IL"
   }; // default option
-  export let phoneNumber: number;
-
-  export let show = false;
-
-  export const whatsappURL = "https://wa.me/";
-  export const getCountryIcon = (isoCode: string) =>
-    `https://www.countryflags.io/${isoCode}/flat/32.png`;
+  let phoneNumber: number;
+  let show = false;
 </script>
 
 <div class="flex h-screen" on:click={() => (show = false)}>
@@ -44,15 +37,7 @@
           aria-haspopup="true"
         >
           <a href="#" class="text-gray-700 block px-1 py-1 text-sm" role="menuitem" tabindex="-1">
-            <div class="flex">
-              <img
-                height="20"
-                width="20"
-                alt={selectedCountry.isoCode}
-                src={getCountryIcon(selectedCountry.isoCode)}
-              />
-              <span class="ml-1">+{selectedCountry.dialCode}</span>
-            </div>
+            <CountryListItem country={selectedCountry} />
           </a>
           <svg
             class="mr-1 ml-4 h-5 w-5 m-auto transform transition-transform duration-200 ease-in-out"
@@ -75,7 +60,7 @@
       {#if show}
         <div
           class="origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 max-h-40 overflow-y-scroll focus:outline-none"
-          in:fade={{ duration: 300 }}
+          in:fade={{ delay: 0, duration: 300 }}
           out:fade={{ delay: 0, duration: 150 }}
           role="menu"
           aria-orientation="vertical"
@@ -93,15 +78,7 @@
                   selectedCountry = country;
                 }}
               >
-                <div class="flex ">
-                  <img
-                    height="20"
-                    width="20"
-                    alt={country.isoCode}
-                    src={getCountryIcon(country.isoCode)}
-                  />
-                  <span class="ml-1">+{country.dialCode}</span>
-                </div>
+                <CountryListItem {country} />
               </a>
             {/each}
           </div>
