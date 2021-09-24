@@ -19,7 +19,9 @@
 
   export let show = false;
 
-  export let whatsappURL = "https://wa.me/";
+  export const whatsappURL = "https://wa.me/";
+  export const getCountryIcon = (isoCode: string) =>
+    `https://www.countryflags.io/${isoCode}/flat/32.png`;
 </script>
 
 <div class="flex h-screen" on:click={() => (show = false)}>
@@ -47,7 +49,7 @@
                 height="20"
                 width="20"
                 alt={selectedCountry.isoCode}
-                src={`https://www.countryflags.io/${selectedCountry.isoCode}/flat/32.png`}
+                src={getCountryIcon(selectedCountry.isoCode)}
               />
               <span class="ml-1">+{selectedCountry.dialCode}</span>
             </div>
@@ -96,7 +98,7 @@
                     height="20"
                     width="20"
                     alt={country.isoCode}
-                    src={`https://www.countryflags.io/${country.isoCode}/flat/32.png`}
+                    src={getCountryIcon(country.isoCode)}
                   />
                   <span class="ml-1">+{country.dialCode}</span>
                 </div>
