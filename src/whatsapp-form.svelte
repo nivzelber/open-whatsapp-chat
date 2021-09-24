@@ -22,11 +22,10 @@
   export let whatsappURL = "https://wa.me/";
 </script>
 
-<main class="flex h-screen" on:click={() => (show = false)}>
-  <div
+<div class="flex h-screen" on:click={() => (show = false)}>
+  <main
     class="m-auto flex gap-2 items-center border-b border-green-200 py-2 focus-within:border-green-400"
   >
-    <!-- This example requires Tailwind CSS v2.0+ -->
     <div
       class="relative inline-block text-left"
       on:click={e => {
@@ -53,7 +52,6 @@
               <span class="ml-1">+{selectedCountry.dialCode}</span>
             </div>
           </a>
-          <!-- Heroicon name: solid/chevron-down -->
           <svg
             class="mr-1 ml-4 h-5 w-5 m-auto transform transition-transform duration-200 ease-in-out"
             class:rotate-180={show}
@@ -72,16 +70,6 @@
         </button>
       </div>
 
-      <!--
-    Dropdown menu, show/hide based on menu state.
-
-    Entering: "transition ease-out duration-100"
-      From: "transform opacity-0 scale-95"
-      To: "transform opacity-100 scale-100"
-    Leaving: "transition ease-in duration-75"
-      From: "transform opacity-100 scale-100"
-      To: "transform opacity-0 scale-95"
-  -->
       {#if show}
         <div
           class="origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 max-h-40 overflow-y-scroll focus:outline-none"
@@ -93,7 +81,6 @@
           tabindex="-1"
         >
           <div class="py-1" role="none">
-            <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
             {#each countries as country}
               <a
                 href="#"
@@ -134,5 +121,5 @@
       on:click={() => (window.location.href = whatsappURL + selectedCountry.dialCode + phoneNumber)}
       >Open!</button
     >
-  </div>
-</main>
+  </main>
+</div>
