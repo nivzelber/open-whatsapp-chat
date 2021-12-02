@@ -36,7 +36,7 @@
           aria-expanded="true"
           aria-haspopup="true"
         >
-          <a href="#" class="text-gray-700 block px-1 py-1 text-sm" role="menuitem" tabindex="-1">
+          <a href="#" class="text-gray-700 block px-3 py-1 text-sm" role="menuitem" tabindex="-1">
             <CountryListItem country={selectedCountry} />
           </a>
           <svg

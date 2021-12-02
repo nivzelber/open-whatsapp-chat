@@ -1,15 +1,19 @@
 <script lang="ts">
   import type { Country } from "./country.type";
 
-  export let flagSize = 20;
-  const getCountryIcon = (isoCode: string) => `https://www.countryflags.io/${isoCode}/flat/32.png`;
+  const flagHeight = 24;
+  const flagWidth = 32;
+
+  const getCountryIcon = (isoCode: string) =>
+    `https://flagcdn.com/h${flagHeight}/${isoCode.toLowerCase()}.png`;
+
   export let country: Country;
 </script>
 
 <div class="flex">
   <img
-    height={flagSize}
-    width={flagSize}
+    height={flagHeight}
+    width={flagWidth}
     alt={country.isoCode}
     src={getCountryIcon(country.isoCode)}
   />
