@@ -87,7 +87,7 @@
     </div>
 
     <input
-      type="text"
+      type="search"
       pattern="\d*"
       inputmode="numeric"
       name="Phone Number"
