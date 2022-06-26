@@ -13,8 +13,12 @@
     dialCode: "972",
     isoCode: "IL"
   }; // default option
-  let phoneNumber: number;
+  let phoneNumber: string;
   let show = false;
+
+  const redirectToChat = () =>
+    (window.location.href =
+      whatsappURL + selectedCountry.dialCode + phoneNumber.replaceAll("-", "").replaceAll(" ", ""));
 </script>
 
 <div class="flex h-screen" on:click={() => (show = false)}>
@@ -94,11 +98,11 @@
       class="leading-tight focus:outline-none appearance-none bg-transparent border-none w-full text-gray-700 "
       placeholder="Enter Phone Number"
       bind:value={phoneNumber}
+      on:keyup={event => event.key === "Enter" && redirectToChat()}
     />
     <button
       class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
-      on:click={() => (window.location.href = whatsappURL + selectedCountry.dialCode + phoneNumber)}
-      >Open!</button
+      on:click={redirectToChat}>Open!</button
     >
   </main>
 </div>
