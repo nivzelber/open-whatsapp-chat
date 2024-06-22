@@ -5,7 +5,8 @@
   import type { Country } from "./country.type";
   import CountryListItem from "./country-list-item.svelte";
 
-  const whatsappURL = "https://wa.me/";
+  const isMobile = navigator.userAgent.includes("Mobile");
+  const whatsappURL = isMobile ? "https://wa.me/" : "https://web.whatsapp.com/send/?phone=";
   const countries: Country[] = countriesJSON;
 
   let selectedCountry: Country = {
@@ -95,7 +96,7 @@
       pattern="\d*"
       inputmode="numeric"
       name="Phone Number"
-      class="leading-tight focus:outline-none appearance-none bg-transparent border-none w-full text-gray-700 "
+      class="leading-tight focus:outline-none appearance-none bg-transparent border-none w-full text-gray-700"
       placeholder="Enter Phone Number"
       bind:value={phoneNumber}
       on:keyup={event => event.key === "Enter" && redirectToChat()}
